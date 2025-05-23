@@ -49,4 +49,4 @@ jobs:
           python -m pip install -e .[test]
 
       - name: Lint code
-        run: test -v
+        run: pytest -v
