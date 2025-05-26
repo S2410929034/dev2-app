@@ -48,5 +48,5 @@ jobs:
           python -m pip install -e .
           python -m pip install -e .[test]
 
-      - name: Lint code
+      - name: Test code
         run: pytest -v
