@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    app: WEB
+spec:
+  containers:
+    - name: nginx
+      image: nginx:1.27.5-alpine
+      imagePullPolicy: IfNotPresent
+      ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+  labels:
+    app: WEB
+spec:
+  type: NodePort
+  ports:
+    - port: 8000
+      targetPort: 80
+  selector:
+    app: WEB
